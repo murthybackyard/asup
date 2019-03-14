@@ -1,7 +1,7 @@
 #
 # Build test
 #
-FROM maven:3.5.1-jdk-8-slim AS build
+FROM maven:3.5-jdk-8 AS build
 COPY src /home/app/src
 COPY pom.xml /home/app
 RUN mvn -f /home/app/pom.xml clean package
@@ -10,6 +10,6 @@ RUN mvn -f /home/app/pom.xml clean package
 # Package test
 #
 FROM openjdk:8-jre-slim
-COPY --from=build /home/app/target/asup-0.0.1-SNAPSHOT.war /usr/local/lib/asup.war
-EXPOSE 8080
+COPY --from=build /home/app/target/asup.war /usr/local/lib/asup.war
+#EXPOSE 8080
 #ENTRYPOINT ["java","-jar","/usr/local/lib/demo.jar"]
