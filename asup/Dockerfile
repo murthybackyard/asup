@@ -1,5 +1,5 @@
 #
-# Build stage
+# Build test
 #
 FROM maven:3.5.1-jdk-8-slim AS build
 COPY src /home/app/src
@@ -7,7 +7,7 @@ COPY pom.xml /home/app
 RUN mvn -f /home/app/pom.xml clean package
 
 #
-# Package stage
+# Package test
 #
 FROM openjdk:8-jre-slim
 COPY --from=build /home/app/target/asup-0.0.1-SNAPSHOT.war /usr/local/lib/asup.war
