@@ -9,7 +9,6 @@ RUN mvn -f /home/app/pom.xml clean package
 #
 # Package test
 #
-
     
 #FROM openjdk:8-jre-slim
 #COPY --from=build /home/app/target/asup.war /home/asup.war
