@@ -2,8 +2,8 @@
 # Build test
 #
 FROM maven:3.5-jdk-8 AS build
-COPY asup/src /home/app/src
-COPY asup/pom.xml /home/app
+COPY src /home/app/src
+COPY pom.xml /home/app
 RUN mvn -f /home/app/pom.xml clean package
 
 FROM tomcat:8.5.38-jre8
