@@ -22,6 +22,5 @@ COPY --from=build /home/app/target/. /usr/local/tomcat/webapps/
 
 CMD ["catalina.sh", "run"]
 
-
 #EXPOSE 8888:8080
 #ENTRYPOINT ["index.jsp"]
