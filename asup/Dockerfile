@@ -13,6 +13,7 @@ RUN mvn -f /home/app/pom.xml clean package
 #FROM openjdk:8-jre-slim
 #COPY --from=build /home/app/target/asup.war /home/asup.war
 
+
 FROM tomcat:8.5.38-jre8
 
 COPY --from=build /home/app/target/. /usr/local/tomcat/webapps/
